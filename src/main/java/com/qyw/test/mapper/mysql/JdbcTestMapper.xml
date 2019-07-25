@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qyw.test.dao.ITestServiceDAO">
+	<!-- 
+	<resultMap id="BaseResultMap" type="com.jx.aisino.model.TabFpxx">
+		<id column="CGUID" property="cguid" jdbcType="VARCHAR" />
+		<result column="ZZDM" property="zzdm" jdbcType="VARCHAR" />
+		<result column="OUT_TRADE_NO" property="outTradeNo" jdbcType="VARCHAR" />
+		<result column="FP_DM" property="fpDm" jdbcType="VARCHAR" />
+		<result column="FP_HM" property="fpHm" jdbcType="VARCHAR" />
+		<result column="RETURNCODE" property="returncode" jdbcType="VARCHAR" />
+		<result column="RETURNMESSAGE" property="returnmessage"
+			jdbcType="VARCHAR" />
+		<result column="HJBHSJE" property="hjbhsje" jdbcType="DECIMAL" />
+		<result column="HJSE" property="hjse" jdbcType="DECIMAL" />
+		<result column="KPRQ" property="kprq" jdbcType="CHAR" />
+		<result column="SSYF" property="ssyf" jdbcType="CHAR" />
+		<result column="XHQDBZ" property="xhqdbz" jdbcType="CHAR" />
+		<result column="RETCODE" property="retcode" jdbcType="VARCHAR" />
+		<result column="NSRSBH" property="nsrsbh" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="fragment_tabFpxx">
+		<where>
+			<if test="zzdm!=null and zzdm !=''">
+				and zzdm = #{zzdm}
+			</if>
+			<if test="out_trade_no!=null and out_trade_no !=''">
+				and OUT_TRADE_NO = #{out_trade_no}
+			</if>
+			<if test="fp_dm!=null and fp_dm !=''">
+				and FP_DM = #{fp_dm}
+			</if>
+			<if test="fp_hm!=null and fp_hm !=''">
+				and FP_HM = #{fp_hm}
+			</if>
+			<if test="returncode!=null and returncode !=''">
+				and RETURNCODE = #{returncode}
+			</if>
+			<if test="kprq!=null and kprq !=''">
+				and KPRQ = #{kprq}
+			</if>
+			<if test="retcode!=null and retcode !=''">
+				and RETCODE = #{retcode}
+			</if>
+			<if test="nsrsbh!=null and nsrsbh !=''">
+				and NSRSBH = #{nsrsbh}
+			</if>
+		</where>
+
+	</sql>
+	<select id="getCount" resultType="int" parameterType="Map">
+		select count(*) from TAB_FPXX
+		<include refid="fragment_tabFpxx" />
+	</select>
+    
+    <select id="jdbcTest" resultType="int" >
+		select count(*) from TAB_FPXX
+		
+	</select>
+    
+	<select id="findFpxx" resultMap="BaseResultMap" parameterType="Map">
+		select * from TAB_FPXX
+		<include refid="fragment_tabFpxx" />
+	</select>
+	<delete id="deleteFpxx" parameterType="TabFpxx">
+		delete from TAB_FPXX
+		<include refid="fragment_tabFpxx" />
+	</delete>
+
+	<insert id="insertFpxx" parameterType="TabFpxx">
+		insert into TAB_FPXX
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="cguid != null">
+				CGUID,
+			</if>
+			<if test="zzdm != null">
+				ZZDM,
+			</if>
+			<if test="outTradeNo != null">
+				OUT_TRADE_NO,
+			</if>
+			<if test="fpDm != null">
+				FP_DM,
+			</if>
+			<if test="fpHm != null">
+				FP_HM,
+			</if>
+			<if test="returncode != null">
+				RETURNCODE,
+			</if>
+			<if test="returnmessage != null">
+				RETURNMESSAGE,
+			</if>
+			<if test="hjbhsje != null">
+				HJBHSJE,
+			</if>
+			<if test="hjse != null">
+				HJSE,
+			</if>
+			<if test="kprq != null">
+				KPRQ,
+			</if>
+			<if test="ssyf != null">
+				SSYF,
+			</if>
+			<if test="xhqdbz != null">
+				XHQDBZ,
+			</if>
+			<if test="retcode != null">
+				RETCODE,
+			</if>
+			<if test="nsrsbh != null">
+				NSRSBH,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="cguid != null">
+				#{cguid,jdbcType=VARCHAR},
+			</if>
+			<if test="zzdm != null">
+				#{zzdm,jdbcType=VARCHAR},
+			</if>
+			<if test="outTradeNo != null">
+				#{outTradeNo,jdbcType=VARCHAR},
+			</if>
+			<if test="fpDm != null">
+				#{fpDm,jdbcType=VARCHAR},
+			</if>
+			<if test="fpHm != null">
+				#{fpHm,jdbcType=VARCHAR},
+			</if>
+			<if test="returncode != null">
+				#{returncode,jdbcType=VARCHAR},
+			</if>
+			<if test="returnmessage != null">
+				#{returnmessage,jdbcType=VARCHAR},
+			</if>
+			<if test="hjbhsje != null">
+				#{hjbhsje,jdbcType=DECIMAL},
+			</if>
+			<if test="hjse != null">
+				#{hjse,jdbcType=DECIMAL},
+			</if>
+			<if test="kprq != null">
+				#{kprq,jdbcType=CHAR},
+			</if>
+			<if test="ssyf != null">
+				#{ssyf,jdbcType=CHAR},
+			</if>
+			<if test="xhqdbz != null">
+				#{xhqdbz,jdbcType=CHAR},
+			</if>
+			<if test="retcode != null">
+				#{retcode,jdbcType=VARCHAR},
+			</if>
+			<if test="nsrsbh != null">
+				#{nsrsbh,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateFpxx" parameterType="TabFpxx">
+		update TAB_FPXX
+		<set>
+			<if test="zzdm != null">
+				ZZDM = #{zzdm,jdbcType=VARCHAR},
+			</if>
+			<if test="outTradeNo != null">
+				OUT_TRADE_NO = #{outTradeNo,jdbcType=VARCHAR},
+			</if>
+			<if test="fpDm != null">
+				FP_DM = #{fpDm,jdbcType=VARCHAR},
+			</if>
+			<if test="fpHm != null">
+				FP_HM = #{fpHm,jdbcType=VARCHAR},
+			</if>
+			<if test="returncode != null">
+				RETURNCODE = #{returncode,jdbcType=VARCHAR},
+			</if>
+			<if test="returnmessage != null">
+				RETURNMESSAGE = #{returnmessage,jdbcType=VARCHAR},
+			</if>
+			<if test="hjbhsje != null">
+				HJBHSJE = #{hjbhsje,jdbcType=DECIMAL},
+			</if>
+			<if test="hjse != null">
+				HJSE = #{hjse,jdbcType=DECIMAL},
+			</if>
+			<if test="kprq != null">
+				KPRQ = #{kprq,jdbcType=CHAR},
+			</if>
+			<if test="ssyf != null">
+				SSYF = #{ssyf,jdbcType=CHAR},
+			</if>
+			<if test="xhqdbz != null">
+				XHQDBZ = #{xhqdbz,jdbcType=CHAR},
+			</if>
+			<if test="retcode != null">
+				RETCODE = #{retcode,jdbcType=VARCHAR},
+			</if>
+			<if test="nsrsbh != null">
+				NSRSBH = #{nsrsbh,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where CGUID = #{cguid,jdbcType=VARCHAR}
+	</update>
+	
+	 -->
+	<select id="jdbcTest" resultType="int" >
+		select count(*) from accesstoken
+		
+	</select>
+</mapper>
